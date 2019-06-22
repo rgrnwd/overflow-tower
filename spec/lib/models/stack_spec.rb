@@ -38,4 +38,12 @@ describe 'stack' do
       expect(glass_stack.check_glass_content(1, 2)).to eq 'no such glass'
     end
   end
+
+  describe '#pour' do
+    it 'pours amount given into top glass' do
+      glass_stack = Stack.new(3)
+      glass_stack.pour(250)
+      expect(glass_stack.check_glass_content(1, 1)).to eq 250
+    end
+  end
 end  

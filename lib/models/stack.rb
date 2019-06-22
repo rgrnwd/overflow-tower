@@ -35,5 +35,9 @@ class Stack
 
     rows[row - 1][index - 1].check_content
   end
+
+  def pour(amount)
+    rows[0][0].pour(amount)
+  end
 end
   
