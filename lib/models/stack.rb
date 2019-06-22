@@ -2,9 +2,10 @@ require './lib/models/glass.rb'
 
 class Stack
 
+  DEFAULT_CAPACITY = 250
   attr_accessor :rows
 
-  def initialize(levels, glass_capacity = 250)
+  def initialize(levels, glass_capacity = DEFAULT_CAPACITY)
     @levels = levels
     @glass_capacity = glass_capacity
     build_stack

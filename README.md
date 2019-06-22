@@ -20,3 +20,7 @@ $ rspec
 ```bash
 $ ruby app.rb
 ```
+
+### Limitations:
+- Maximum number of levels 100
+- Maximum amount of water to pour 100L
