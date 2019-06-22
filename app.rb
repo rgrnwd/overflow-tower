@@ -1,5 +1,3 @@
-require "./lib/models/glass.rb"
-require "./lib/models/stack.rb"
 require "./lib/helpers/console_interface.rb"
 
 console_interface = ConsoleInterface.new()
