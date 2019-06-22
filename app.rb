@@ -14,3 +14,5 @@ puts 'When a liquid is poured into the top most glass any overflow is evenly '\
 'distributed between the glasses in the next row.'
 puts 'That is, half of the overflow pours into the left glass while the remainder '\
 'of the overflow pours into the right glass.'
+
+console_interface.pour_water_onto_tower(glass_tower)
