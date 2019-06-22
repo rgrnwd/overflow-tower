@@ -12,3 +12,9 @@ bundle install
 ```bash
 $ rspec
 ```
+
+## Start the application
+
+```bash
+$ ruby app.rb
+```
