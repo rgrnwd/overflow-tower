@@ -41,11 +41,11 @@ describe 'console interface' do
       end
     end
     describe 'number of levels too high' do
-      it 'creates a stack of the maximum 100 levels' do
+      it 'creates a stack of the maximum 20 levels' do
         console_interface = ConsoleInterface.new(output: output, input: StringIO.new("250\n200\n"))
         console_interface.build_glass_stack_from_input
 
-        expect(output.string).to include("Capacity is 250, and the stack is 100 levels high")
+        expect(output.string).to include("Capacity is 250, and the stack is 20 levels high")
       end
     end
   end
@@ -76,9 +76,9 @@ describe 'console interface' do
       end
     end
     describe 'amount too high' do
-      it 'pours the maximum amount of 100L' do
+      it 'pours the maximum amount of 150L' do
         console_interface = ConsoleInterface.new(output: output, input: StringIO.new("200000\n"))
-        expect(glass_stack).to receive(:pour).with(100000.0)
+        expect(glass_stack).to receive(:pour).with(150000.0)
         console_interface.pour_water_onto_stack(glass_stack)
       end
     end

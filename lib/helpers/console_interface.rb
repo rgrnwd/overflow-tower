@@ -4,8 +4,8 @@ class ConsoleInterface
     DEFAULT_AMOUNT_TO_POUR = 1000.0
     DEFAULT_LEVELS = 5
     DEFAULT_CAPACITY = 250
-    MAX_AMOUNT_TO_POUR = 100000.0
-    MAX_LEVELS = 100
+    MAX_AMOUNT_TO_POUR = 150000.0
+    MAX_LEVELS = 20
 
     def initialize(input: $stdin, output: $stdout)
         @input = input
