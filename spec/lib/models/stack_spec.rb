@@ -45,5 +45,24 @@ describe 'stack' do
       glass_stack.pour(250)
       expect(glass_stack.check_glass_content(1, 1)).to eq 250
     end
+
+    it 'pours overflow to next row' do
+      glass_stack = Stack.new(3)
+      glass_stack.pour(350)
+      expect(glass_stack.check_glass_content(1, 1)).to eq 250
+      expect(glass_stack.check_glass_content(2, 1)).to eq 50
+      expect(glass_stack.check_glass_content(2, 2)).to eq 50
+    end
+
+    it 'pours overflow multiple rows' do
+      glass_stack = Stack.new(3)
+      glass_stack.pour(950)
+      expect(glass_stack.check_glass_content(1, 1)).to eq 250
+      expect(glass_stack.check_glass_content(2, 1)).to eq 250
+      expect(glass_stack.check_glass_content(2, 2)).to eq 250
+      expect(glass_stack.check_glass_content(3, 1)).to eq 50
+      expect(glass_stack.check_glass_content(3, 2)).to eq 100
+      expect(glass_stack.check_glass_content(3, 3)).to eq 50
+    end
   end
 end  
