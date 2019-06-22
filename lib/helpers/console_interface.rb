@@ -33,6 +33,12 @@ class ConsoleInterface
         index = @input.gets.chomp
         result = glass_tower.check_glass_content(row.to_i, index.to_i)
 
-        @output.puts "There seems to be #{result.to_i}mls in that glass"
+        if result == 'no such glass'
+            @output.puts "There is no glass at row #{row} and index #{index}."
+        elsif result == 0
+            @output.puts "That glass is empty"
+        else
+            @output.puts "There seems to be #{result.to_i}mls in that glass"
+        end
     end
 end

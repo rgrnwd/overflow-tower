@@ -73,5 +73,19 @@ describe 'console interface' do
       console_interface.display_glass_content(glass_tower)
       expect(output.string).to include("There seems to be 300mls in that glass")
     end
+
+    it 'returns no such glass when index is out of bounds' do
+      console_interface = ConsoleInterface.new(output: output, input: StringIO.new("6\n7\n"))
+      expect(glass_tower).to receive(:check_glass_content).with(6, 7).and_return('no such glass')
+      console_interface.display_glass_content(glass_tower)
+      expect(output.string).to include("There is no glass at row 6 and index 7")
+    end
+
+    it 'returns that glass is empty when glass content is 0' do
+      console_interface = ConsoleInterface.new(output: output, input: StringIO.new("1\n1\n"))
+      expect(glass_tower).to receive(:check_glass_content).with(1, 1).and_return(0)
+      console_interface.display_glass_content(glass_tower)
+      expect(output.string).to include("That glass is empty")
+    end
   end
 end
