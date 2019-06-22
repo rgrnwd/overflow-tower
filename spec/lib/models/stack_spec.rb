@@ -19,4 +19,23 @@ describe 'stack' do
       expect(glass_stack.rows[4].length).to eq(5)
     end
   end
+
+  describe '#check_glass_content' do
+    it 'returns the content of the glass in the first index of the first row' do
+      glass_stack = Stack.new(1)
+      expect(glass_stack.check_glass_content(1, 1)).to eq 0
+    end
+    it 'returns the content of the glass in the nth index of the nth row' do
+      glass_stack = Stack.new(5)
+      expect(glass_stack.check_glass_content(3, 2)).to eq 0
+    end
+    it 'returns "no such glass" when row given is outside of stack bounds' do
+      glass_stack = Stack.new(1)
+      expect(glass_stack.check_glass_content(2, 1)).to eq 'no such glass'
+    end
+    it 'returns "no such glass" when index given is outside of row bounds' do
+      glass_stack = Stack.new(1)
+      expect(glass_stack.check_glass_content(1, 2)).to eq 'no such glass'
+    end
+  end
 end  

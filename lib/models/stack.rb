@@ -27,5 +27,13 @@ class Stack
     end
     glasses
   end
+
+  def check_glass_content(row, index)
+    if row > @levels || index > rows[row - 1].length
+      return 'no such glass'
+    end
+
+    rows[row - 1][index - 1].check_content
+  end
 end
   
