@@ -57,4 +57,21 @@ describe 'console interface' do
       expect(output.string).to include("Okay, we've just poured 100mls onto the tower.")
     end
   end
+
+  describe '#display_glass_content' do
+    let(:glass_tower) { instance_double('Stack') }
+
+    it 'passes the user input for row and index of glass to find contents' do
+      console_interface = ConsoleInterface.new(output: output, input: StringIO.new("1\n1\n"))
+      expect(glass_tower).to receive(:check_glass_content).with(1, 1)
+      console_interface.display_glass_content(glass_tower)
+    end
+
+    it 'displays result returned from glass tower' do
+      console_interface = ConsoleInterface.new(output: output, input: StringIO.new("3\n3\n"))
+      expect(glass_tower).to receive(:check_glass_content).with(3, 3).and_return(300)
+      console_interface.display_glass_content(glass_tower)
+      expect(output.string).to include("There seems to be 300mls in that glass")
+    end
+  end
 end

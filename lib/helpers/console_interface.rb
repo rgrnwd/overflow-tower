@@ -25,4 +25,14 @@ class ConsoleInterface
         glass_tower.pour(amount.to_f)
         @output.puts "Okay, we've just poured #{amount}mls onto the tower."
     end
+
+    def display_glass_content(glass_tower)
+        @output.print "Let's check how much water is in the glass at row (first row is 1): "
+        row = @input.gets.chomp
+        @output.print "and index (first glass in the row is 1): "
+        index = @input.gets.chomp
+        result = glass_tower.check_glass_content(row.to_i, index.to_i)
+
+        @output.puts "There seems to be #{result.to_i}mls in that glass"
+    end
 end

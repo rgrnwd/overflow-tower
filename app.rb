@@ -16,3 +16,13 @@ puts 'That is, half of the overflow pours into the left glass while the remainde
 'of the overflow pours into the right glass.'
 
 console_interface.pour_water_onto_tower(glass_tower)
+
+loop do
+    console_interface.display_glass_content(glass_tower)
+
+    print 'Do you want to check another glass? (y/n): '
+    answer = gets.chomp
+    if answer != 'y'
+        break
+    end
+end
