@@ -34,4 +34,10 @@ describe 'glass' do
     end
   end
 
+  describe '#check_capacity' do
+    it 'returns given capacity' do
+      glass = Glass.new(200)
+      expect(glass.check_capacity).to eq(200)
+    end
+  end
 end

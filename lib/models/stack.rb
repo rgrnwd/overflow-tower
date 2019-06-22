@@ -4,9 +4,9 @@ class Stack
 
   attr_accessor :rows
 
-  def initialize(levels)
+  def initialize(levels, glass_capacity = 250)
     @levels = levels
-    @glass_capacity = 250
+    @glass_capacity = glass_capacity
     build_stack
   end
     

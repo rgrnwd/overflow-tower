@@ -19,4 +19,7 @@ class Glass
   def check_content
     return @content
   end
+  def check_capacity
+    return @capacity
+  end
 end
