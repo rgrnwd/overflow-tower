@@ -73,5 +73,9 @@ describe 'stack' do
       expect(glass_stack.check_glass_content(3, 2)).to eq(125)
       expect(glass_stack.check_glass_content(3, 3)).to eq(62.5)
     end
+    it 'stops pouring when all glasses are full' do
+      glass_stack = Stack.new(3, 100)
+      glass_stack.pour(1000)
+    end
   end
 end

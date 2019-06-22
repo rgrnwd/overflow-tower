@@ -41,13 +41,14 @@ class Stack
   end
 
   def pour_with_overflow(row, index, amount)
-    #validation
-    overflow = rows[row][index].pour(amount)
+    if row < @levels && index < rows[row].length
+      overflow = rows[row][index].pour(amount)
 
-    if overflow > 0
-      row += 1
-      pour_with_overflow(row, index, overflow / 2)
-      pour_with_overflow(row, index + 1, overflow / 2)
+      if overflow > 0
+        row += 1
+        pour_with_overflow(row, index, overflow / 2)
+        pour_with_overflow(row, index + 1, overflow / 2)
+      end
     end
   end
 end
