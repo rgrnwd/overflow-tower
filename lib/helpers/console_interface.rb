@@ -7,11 +7,11 @@ class ConsoleInterface
     end
     
     def build_glass_stack_from_input
-        @output.print 'Each glass has a capacity of? (specify number of press enter for default 250ml) '
+        @output.print 'Each glass has a capacity of? (specify number or press enter for default 250ml) '
         capacity = @input.gets.chomp.to_i
         capacity = 250 if capacity == 0
         
-        @output.print 'How tall is this stack of glasses? (specify number of press enter for default 5) '
+        @output.print 'How tall is this stack of glasses? (specify number or press enter for default 5) '
         levels = @input.gets.chomp.to_i
         levels = 5 if levels == 0
         
@@ -20,10 +20,13 @@ class ConsoleInterface
     end
 
     def pour_water_onto_stack(glass_stack)
-        @output.print "Let's pour some water onto the stack, shall we? (Enter amount in mls) "
-        amount = @input.gets.chomp
-        glass_stack.pour(amount.to_f)
-        @output.puts "Okay, we've just poured #{amount}mls onto the stack."
+        @output.print "Let's pour some water onto the stack, shall we? "\
+            "(Enter amount in mls or press enter for default 1000mls) "
+        amount = @input.gets.chomp.to_f
+        amount = 1000.0 if amount == 0
+
+        glass_stack.pour(amount)
+        @output.puts "Okay, we've just poured #{amount.to_i}mls onto the stack."
     end
 
     def display_glass_content(glass_stack)

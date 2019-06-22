@@ -42,19 +42,29 @@ describe 'console interface' do
   end
 
   describe '#pour_water_onto_stack' do
-    let(:console_interface) { ConsoleInterface.new(output: output, input: StringIO.new("100\n")) }
     let(:glass_stack) { instance_double('Stack') }
+    describe 'valid input' do
+      let(:console_interface) { ConsoleInterface.new(output: output, input: StringIO.new("100\n")) }
 
-    it 'pours the specified amount onto the glass stack' do
-      expect(glass_stack).to receive(:pour).with(100.0)
+      it 'pours the specified amount onto the glass stack' do
+        expect(glass_stack).to receive(:pour).with(100.0)
 
-      console_interface.pour_water_onto_stack(glass_stack)
+        console_interface.pour_water_onto_stack(glass_stack)
+      end
+      it 'prints a summary' do
+        allow(glass_stack).to receive(:pour)
+
+        console_interface.pour_water_onto_stack(glass_stack)
+        expect(output.string).to include("Okay, we've just poured 100mls onto the stack.")
+      end
     end
-    it 'prints a summary' do
-      allow(glass_stack).to receive(:pour)
+    describe 'invalid input' do
+      let(:console_interface) { ConsoleInterface.new(output: output, input: StringIO.new("INVALID\n")) }
+      it 'pours a default amount onto the glass stack' do
+        expect(glass_stack).to receive(:pour).with(1000.0)
 
-      console_interface.pour_water_onto_stack(glass_stack)
-      expect(output.string).to include("Okay, we've just poured 100mls onto the stack.")
+        console_interface.pour_water_onto_stack(glass_stack)
+      end
     end
   end
 
