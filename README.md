@@ -23,4 +23,4 @@ $ ruby app.rb
 
 ### Limitations:
 - Maximum number of levels 20
-- Maximum amount of water to pour 120L
+- Maximum amount of water to pour 150L
