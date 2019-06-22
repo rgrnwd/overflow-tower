@@ -1,4 +1,4 @@
-require 'models/glass.rb'
+require './lib/models/glass.rb'
 
 class Stack
 
@@ -41,6 +41,7 @@ class Stack
   end
 
   def pour_with_overflow(row, index, amount)
+    #validation
     overflow = rows[row][index].pour(amount)
 
     if overflow > 0
