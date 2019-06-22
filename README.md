@@ -15,7 +15,7 @@ bundle install
 $ rspec
 ```
 
-## Start the application
+## Run the application
 
 ```bash
 $ ruby app.rb
